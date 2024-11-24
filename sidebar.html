@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FileLu Uploader</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.6.0/font/bootstrap-icons.min.css"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div>
+      <img src="images/logo.png" height="35px" alt="FileLu Logo">
+
+      <button id="addKeyButton" class="icon-button" aria-label="Settings">
+        <i class="bi bi-gear"></i>
+      </button>
+    </div>
+
+    <div id="storageInfo" class="storage-info">
+      <div class="storage-text" id="storageUsageText"></div>
+      <div id="storageProgressContainer" class="storage-progress-container">
+        <div id="storageProgress" class="storage-progress"></div>
+      </div>
+      <div class="account-type-container">
+        <i id="accountTypeIcon" class="account-type"></i>
+        <span id="accountTypeLabel" class="account-type-label"></span>
+      </div>
+    </div>
+  </header>
+
+
+
+  <input type="text" id="CEKey" placeholder="Enter FileLu Chrome Extension Key" class="hidden">
+  <div class="links" style="display: flex; gap: 10px; align-items: center;">
+    <button id="saveKeyButton" class="btn btn-primary hidden">Save FileLu CE Key</button>
+    <a id="getKeyButton" href="https://filelu.com/account/" class="btn btn-info hidden"
+      onclick="handleClick(event, 'Account')">
+      Get FileLu Chrome Extension Key
+    </a>
+  </div>
+
+
+  <div class="buttons-container">
+    <!-- Updated to white button with boxshadow and icons -->
+    <button id="captureButton" class="btn btn-white">
+      <i class="bi bi-camera"></i> Screen Capture <!-- Bootstrap Camera Icon -->
+    </button>
+
+
+
+    <!-- New Add Note button -->
+    <button id="addNoteButton" class="btn btn-white">
+      <i class="bi bi-file-earmark-text"></i> Add Note
+    </button>
+    <!-- New URL Upload button and input field -->
+    <button id="urlUploadButton" class="btn btn-white">
+      <i class="bi bi-link-45deg"></i> URL Upload
+    </button>
+    <button id="recordButton" class="btn btn-white hidden" style="display:none;">
+      <i class="bi bi-camera-video"></i> Start Screen Record <!-- Bootstrap Camera Video Icon -->
+    </button>
+
+    <button id="recentUploadsButton" class="btn btn-white">
+      <i class="bi bi-clock-history"></i> Recent Uploads
+    </button>
+    <progress id="uploadProgress" value="0" max="100" class="hidden"></progress>
+  </div>
+
+
+  <!-- New Record Audio button -->
+
+  <div id="urlUploadSection" class="hidden" style="text-align: center;">
+
+    <textarea id="urlInput" placeholder="Enter file URLs, one per line"
+      style="width:95%;height:100px;margin:10px auto;padding:8px;display: block;"></textarea>
+    <button id="sendUrlButton" class="btn btn-primary" style="margin: 0 auto;">
+      Send URLs
+    </button>
+  </div>
+  <div id="uploadStatus"
+    style="padding: 20px; border: 1px solid #ccc; border-radius: 8px; background-color: #f9f9f9; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); "
+    class="hidden">
+    <p id="uploadProgressText" style="font-size: 16px; font-weight: bold; color: #333; margin-bottom: 10px;">Uploading,
+      please wait...</p>
+    <p id="urlCountText" style="font-size: 14px; color: #555; margin-bottom: 5px;"></p>
+    <p id="uploadSpeedText" style="font-size: 14px; color: #555;"></p>
+  </div>
+
+
+  <div class="upload-container">
+    <div id="dropZone" class="drop-zone">
+      <button id="uploadButton" class="btn btn-primary position-relative">
+        <i class="bi bi-upload"></i> Upload File
+        <span class="drag-drop-text">drag-n-drop</span>
+      </button>
+    </div>
+  </div>
+  <input type="file" id="fileInput" class="hidden" multiple>
+
+
+  <div id="AllLinks"></div>
+
+  <!--a id="fileLink" href="#" target="_blank" class="btn btn-primary">Open Download Link</a-->
+  <div id="downloadUrls">
+    <div style="padding:20px;" id="downloadUrls2">
+
+      <!-- Links will appear here -->
+    </div>
+
+    <div id="recentUploadsContainer" class="hidden" style="display: none; padding: 10px;"></div>
+    <div class="share-options hidden">
+
+      <!-- Ensure this button is included in the HTML -->
+      <button id="copyAllLinks"><i class="bi bi-clipboard"></i> Copy All Links</button>
+      <button id="shareEmail"><i class="bi bi-envelope"></i> Email</button>
+      <button id="shareFacebook"><i class="bi bi-facebook"></i> Facebook</button>
+      <button id="shareTwitter"><i class="bi bi-twitter"></i> Twitter</button>
+      <button id="shareWhatsApp"><i class="bi bi-whatsapp"></i> WhatsApp</button>
+      <button id="shareLinkedIn"><i class="bi bi-linkedin"></i> LinkedIn</button>
+      <button id="shareMessenger"><i class="bi bi-messenger"></i> Messenger</button>
+      <button id="shareTelegram"><i class="bi bi-telegram"></i> Telegram</button>
+      <button id="shareReddit"><i class="bi bi-reddit"></i> Reddit</button>
+      <button id="sharePinterest"><i class="bi bi-pinterest"></i> Pinterest</button>
+    </div>
+  </div>
+  <!-- Footer section -->
+  <!-- Footer section -->
+  <footer>
+    <p>&copy; 2024 FileLu. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="https://filelu.com/contact/" class="btn btn-outline-dark small-btn"
+        onclick="handleClick(event, 'Contact us')">Contact us</a>
+      <a href="https://filelu.com/premium/" class="btn btn-outline-dark small-btn"
+        onclick="handleClick(event, 'Premium')">Premium</a>
+      <a href="https://filelu.com/pages/faq/" class="btn btn-outline-dark small-btn"
+        onclick="handleClick(event, 'FAQs')">FAQs</a>
+      <a href="https://filelu.com/pages/terms/" class="btn btn-outline-dark small-btn"
+        onclick="handleClick(event, 'Terms')">Terms</a>
+      <a href="https://filelu.com/pages/feedback/" class="btn btn-outline-dark small-btn"
+        onclick="handleClick(event, 'Feedback')">Feedback</a>
+    </div>
+  </footer>
+  <!-- Note Modal -->
+  <div id="noteModal" class="modal" style="display:none;">
+    <div class="modal-content"
+      style="padding:20px; border-radius:8px; max-width:400px; margin:auto; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+      <h3>Add Note</h3>
+      <textarea id="noteTextarea" placeholder="Enter your notes here..."
+        style="width:100%; height:150px; margin-bottom:10px;"></textarea>
+      <input type="text" id="noteFilename" placeholder="Filename" value="note.txt"
+        style="width:100%; margin-bottom:10px; padding:8px;">
+
+      <!-- Button container for proper alignment -->
+      <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px;">
+        <button id="saveNoteButton" class="btn btn-primary">Save Note</button>
+        <button class="btn btn-secondary" id="closeNoteModal">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <script src="sidebar.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,595 @@
+   body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 0px;
+     width: 100%;
+     background-color: #f4f4f9;
+     height: 570px;
+     display: flex;
+     flex-direction: column;
+     overflow-x: hidden;
+   }
+
+   header {
+     width: 100%;
+     /* Full width */
+     /* Distribute children evenly */
+     background-color: white;
+     padding: 15px;
+     border-bottom: 1px solid silver;
+   }
+
+   .logo_setting {
+     display: flex;
+     align-items: center;
+     justify-content:space-between
+   }
+
+   .icon-button {
+     background: none;
+     border: none;
+     color: #007bff;
+     cursor: pointer;
+     font-size: 20px;
+     display: flex;
+     align-items: right;
+     float: right;
+     margin-right: 25px;
+     /* Added to space the icon from the logo */
+   }
+
+   .icon-button:hover {
+     color: #0056b3;
+   }
+
+   header img {
+     height: 35px;
+     margin-right: 10px;
+   }
+
+   header h1 {
+     font-size: 18px;
+     color: #333;
+     margin: 0;
+   }
+
+   .btn {
+     display: inline-block;
+     padding: 10px;
+     margin: 5px 2px;
+     border: none;
+     border-radius: 5px;
+     font-size: 14px;
+     color: white;
+     text-align: center;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+     width: 48%;
+   }
+
+   /* .btn-info styles */
+   .btn-info {
+     background-color: #17a2b8;
+     /* Blueish color */
+     color: white;
+     /* White text */
+   }
+
+   .btn-info:hover {
+     background-color: #138496;
+     /* Darker blueish color */
+     color: white;
+     /* Keep text white */
+   }
+
+   .btn-primary {
+     background-color: #4CAF50;
+   }
+
+   .btn-primary:hover {
+     background-color: #45a049;
+   }
+
+   .btn-secondary {
+     background-color: #007bff;
+   }
+
+   .btn-secondary:hover {
+     background-color: #0056b3;
+   }
+
+   .hidden {
+     display: none;
+   }
+
+   input[type="text"] {
+     width: 95%;
+     padding: 8px;
+     margin: 10px auto;
+   }
+
+   .buttons-container {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     width: 100%;
+     margin: 10px auto;
+   }
+
+   .upload-container {
+     width: 100%;
+     /* or specific width */
+     text-align: center;
+   }
+
+   /* Rectangular button style for the Upload File button */
+   #uploadButton {
+     position: relative;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     width: 280px;
+     height: 60px;
+     color: #fff;
+     background: linear-gradient(to right, #8E2BE9, #5E46FE, #12AFE4);
+     box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
+     font-size: 20px;
+     font-weight: 400;
+     border: 0;
+     border-radius: 5px;
+     display: inline-block;
+     text-align: center;
+     line-height: 40px;
+   }
+
+   /* Hover effect for the button */
+   #uploadButton:hover {
+     background: linear-gradient(to right, #12AFE4, #5E46FE, #8E2BE9);
+     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+   }
+
+   .share-options {
+     margin-top: 20px;
+     text-align: center;
+   }
+
+   .share-options button {
+     margin: 5px 3px;
+     padding: 5px 8px;
+     font-size: 12px;
+     border: none;
+     border-radius: 5px;
+     color: white;
+     background-color: #007bff;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+   }
+
+   .share-options button:hover {
+     background-color: #0056b3;
+   }
+
+   progress {
+     width: 95%;
+     height: 20px;
+     margin: 10px auto;
+   }
+
+   /* Footer styles */
+   footer {
+     margin-top: auto;
+     /* Push footer to the bottom */
+     background-color: #ffffff;
+     /* White background for a clean look */
+     color: #333;
+     /* Keep text dark gray for readability */
+     text-align: center;
+     padding: 20px;
+     /* Slightly more padding for better spacing */
+     font-size: 14px;
+
+     border-top: 1px solid #e0e0e0;
+     /* Lighter border for subtle separation */
+     box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+     /* Soft shadow for depth */
+   }
+
+   footer a {
+     color: #007bff;
+     /* Brighter color for links */
+     text-decoration: none;
+     padding: 5px 10px;
+     font-size: 12px;
+     margin: 0 5px;
+     transition: color 0.3s ease;
+   }
+
+   footer a:hover {
+     color: #0056b3;
+     /* Darker shade on hover for interaction */
+     text-decoration: underline;
+     /* Text underline on hover for clarity */
+   }
+
+   .small-btn {
+     font-size: 12px;
+     padding: 5px 10px;
+     margin: 0 5px;
+   }
+
+   .btn-outline-dark {
+     border: 1px solid #007bff;
+     /* Match the link color for consistency */
+     color: #007bff;
+     /* Align button border and text color with link color */
+     background-color: transparent;
+   }
+
+   .btn-outline-dark:hover {
+     background-color: #007bff;
+     /* Filled button on hover for emphasis */
+     color: #fff;
+     /* White text when button is filled */
+   }
+
+   footer .footer-links {
+     display: flex;
+     justify-content: center;
+     /* Center buttons horizontally */
+     flex-wrap: wrap;
+     /* Allow wrapping for smaller screens */
+     gap: 5px;
+     /* Space between the buttons */
+   }
+
+   footer .footer-links a {
+     flex: 0 1 auto;
+     width: auto;
+   }
+
+   .btn-white {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     background-color: white;
+     color: #333;
+     border: 1px solid silver;
+     border-radius: 5px;
+     padding: 10px;
+     font-size: 14px;
+     width: 48%;
+     margin: 5px 2px;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     transition: transform 0.2s ease, box-shadow 0.2s ease;
+     cursor: pointer;
+   }
+
+   .btn-white:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+   }
+
+   .btn-white i {
+     margin-right: 5px;
+   }
+
+   #uploadButton i {
+     margin-right: 10px;
+   }
+
+   .download-container {
+     background-color: #fff;
+     border-radius: 8px;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+     padding: 20px;
+     max-width: 500px;
+     margin: 20px auto;
+     text-align: center;
+     transition: all 0.3s ease;
+   }
+
+   .download-container:hover {
+     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+   }
+
+   #fileLink {
+     margin-bottom: 15px;
+     display: inline-block;
+   }
+
+   .share-options {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 10px;
+   }
+
+   .share-options button {
+     border: none;
+     border-radius: 4px;
+     padding: 8px 12px;
+     font-size: 14px;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+     color: #fff;
+     /* Default text color */
+     display: inline-flex;
+     align-items: center;
+   }
+
+   .share-options button i {
+     margin-right: 5px;
+   }
+
+   /* Specific brand colors for each button */
+   /* Style only the copy buttons */
+   /* Styling for the copy button */
+   .copy-button {
+     background-color: #007BFF;
+     /* Blue background */
+     color: white;
+     /* White text */
+     border: none;
+     /* No border */
+     padding: 8px 12px;
+     /* Padding for the button */
+     margin-left: 10px;
+     /* Space between the link and button */
+     border-radius: 4px;
+     /* Rounded corners */
+     cursor: pointer;
+     /* Pointer cursor */
+     font-size: 14px;
+     /* Font size */
+     transition: background-color 0.3s ease;
+     /* Smooth hover effect */
+   }
+
+   /* Hover effect for the copy button */
+   .copy-button:hover {
+     background-color: #0056b3;
+     /* Darker blue on hover */
+   }
+
+   /* Style the link-container to add space between link and button */
+   .link-container {
+     margin-bottom: 10px;
+     /* Space between link sets */
+     display: flex;
+     align-items: center;
+     /* Align the link and button horizontally */
+   }
+
+   a {
+     text-decoration: none;
+     /* Remove underline from the link */
+     color: #007BFF;
+     /* Link color */
+     margin-right: 10px;
+     /* Space between the link and the button */
+   }
+
+   #copyAllLinks {
+     background-color: #4CAF50;
+     /* Green color for general actions */
+   }
+
+   #shareEmail {
+     background-color: #007bff;
+     /* Blue, similar to default for simplicity */
+   }
+
+   #shareFacebook {
+     background-color: #3b5998;
+   }
+
+   #shareTwitter {
+     background-color: #55acee;
+   }
+
+   #shareWhatsApp {
+     background-color: #25D366;
+   }
+
+   #shareLinkedIn {
+     background-color: #0077b5;
+   }
+
+   #shareMessenger {
+     background-color: #0084ff;
+   }
+
+   #shareTelegram {
+     background-color: #0088cc;
+   }
+
+   #shareReddit {
+     background-color: #ff4500;
+   }
+
+   #sharePinterest {
+     background-color: #bd081c;
+   }
+
+   /* Style the download link */
+   .download-link {
+     color: #007bff;
+     /* Blue color for the link */
+     text-decoration: none;
+     /* Remove underline */
+     font-size: 16px;
+     /* Font size */
+   }
+
+   .download-link:hover {
+     text-decoration: underline;
+     /* Add underline on hover */
+   }
+
+   /* Style the copy button */
+   .copy-button {
+     margin-top: 10px;
+     /* Add some space above the button */
+     padding: 5px 15px;
+     /* Add padding to the button */
+   }
+
+   .copy-button:hover {
+     background-color: #0056b3;
+     /* Darker background color on hover */
+   }
+
+   .modal {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.5);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     z-index: 1000;
+     /* Ensure it is above other content */
+   }
+
+   /* CSS for thumbnail and filename */
+   .link-container {
+     display: flex;
+     align-items: center;
+     padding: 10px;
+     margin-bottom: 10px;
+     border: 1px solid #e0e0e0;
+     border-radius: 8px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     background-color: #fff;
+     transition: box-shadow 0.3s ease;
+   }
+
+   .link-container:hover {
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+   }
+
+   .thumbnail {
+     width: 50px;
+     height: 50px;
+     object-fit: cover;
+     border-radius: 4px;
+     margin-right: 15px;
+   }
+
+   .filename {
+     flex-grow: 1;
+     font-weight: bold;
+     color: #007bff;
+     text-decoration: none;
+     font-size: 16px;
+   }
+
+   .filename:hover {
+     text-decoration: underline;
+   }
+
+   .copy-button {
+     padding: 5px 10px;
+     font-size: 14px;
+     border: 1px solid #007bff;
+     border-radius: 4px;
+     background-color: #fff;
+     color: #007bff;
+     cursor: pointer;
+     transition: background-color 0.3s ease, color 0.3s ease;
+   }
+
+   .copy-button:hover {
+     background-color: #007bff;
+     color: #fff;
+   }
+
+
+
+
+   .storage-info {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     flex-direction: column;
+     margin-top: 20px;
+   }
+
+   .storage-progress-container {
+     position: relative;
+     width: 200px;
+     /* Make the progress bar longer */
+     height: 10px;
+     background-color: #e0e0e0;
+     border-radius: 5px;
+     overflow: hidden;
+   }
+
+   .storage-text {
+     font-size: 0.9em;
+     color: #555;
+     text-align: center;
+   }
+
+   .storage-progress {
+     height: 100%;
+     background-color: #76c7c0;
+     /* Light blue for the used storage */
+     transition: width 0.3s ease;
+   }
+
+   .account-type-container {
+     display: flex;
+     align-items: center;
+     gap: 5px;
+   }
+
+   .account-type {
+     font-size: 1.25em;
+   }
+
+   .account-type-label {
+     font-size: 0.9em;
+     color: #333;
+   }
+
+   .drop-zone {
+     height: 100px;
+     border: 2px dashed #ccc;
+     border-radius: 10px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     color: #555;
+     text-align: center;
+     margin-top: 20px;
+     transition: background-color 0.3s ease;
+   }
+
+   .drop-zone.active {
+     background-color: #e0f7fa;
+     height: 200px;
+   }
+
+   #uploadButton {
+     position: relative;
+     /* Ensures the child span can be positioned relative to the button */
+     padding-right: 50px;
+     /* Add padding to avoid text overlap with "drag-n-drop" */
+   }
+
+   .drag-drop-text {
+     font-size: 10px;
+     /* Make the text small */
+     color: #fff;
+     /* Use a subtle color */
+     position: absolute;
+     /* Position it relative to the button */
+     bottom: 5px;
+     /* Adjust vertical position */
+     right: 30px;
+     /* Adjust horizontal position */
+     pointer-events: none;
+     /* Ensure the text doesn't interfere with button clicks */
+   }
